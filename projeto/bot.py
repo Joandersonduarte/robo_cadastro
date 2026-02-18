@@ -18,5 +18,3 @@ servico = Service(ChromeDriverManager().install(), log_output=None)
 servico = Service(ChromeDriverManager().install())
 navegador = w.Chrome(service=servico, options=chrome_options)
 wait = WebDriverWait(navegador, 5)
-
-
