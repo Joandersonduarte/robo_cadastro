@@ -18,3 +18,15 @@ servico = Service(ChromeDriverManager().install(), log_output=None)
 servico = Service(ChromeDriverManager().install())
 navegador = w.Chrome(service=servico, options=chrome_options)
 wait = WebDriverWait(navegador, 5)
+
+def login():
+    try:
+        navegador.get('https://rpachallenge.com/')
+        print('Acessando o site...')
+    except Exception as e:
+        print('Erro ao acessar o site:', e)
+        return False
+
+
+if __name__ == "__main__":
+    login()
