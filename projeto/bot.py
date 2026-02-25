@@ -19,6 +19,7 @@ servico = Service(ChromeDriverManager().install())
 navegador = w.Chrome(service=servico, options=chrome_options)
 wait = WebDriverWait(navegador, 5)
 
+delay = t.sleep(1)
 
 def leitura_dados():
      try:
@@ -54,12 +55,19 @@ def start_boot():
         fone = row['Phone Number']
 
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[ng-reflect-name="labelRole"]'))).send_keys(cargo)
+        delay
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[ng-reflect-name="labelFirstName"]'))).send_keys(nome)
+        delay
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[ng-reflect-name="labelCompanyName"]'))).send_keys(companhia)
+        delay
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[ng-reflect-name="labelAddress"]'))).send_keys(endereco)
+        delay
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[ng-reflect-name="labelEmail"]'))).send_keys(email)
+        delay
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[ng-reflect-name="labelPhone"]'))).send_keys(fone)
-        wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[ng-reflect-name="labelLastName"]'))).send_keys(sobrenome) 
+        delay
+        wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[ng-reflect-name="labelLastName"]'))).send_keys(sobrenome)
+        delay 
         wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[type="submit"]'))).click() 
         print(f'Cadastro de {nome} {sobrenome} realizado com sucesso.')
     print('Todos os cadastros foram realizados com sucesso.')
